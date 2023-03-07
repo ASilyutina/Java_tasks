@@ -28,6 +28,65 @@ public class HomeTask01 {
 }
 /*
 
+// 1.2 Дан массив nums = [3,2,2,3] и число val = 3.
+Если в массиве есть числа, равные заданному, нужно перенести эти элементы в конец массива.
+Таким образом, первые несколько (или все) элементов массива должны быть отличны от заданного, а остальные - равны ему
+
+class GFG{
+ 
+static int[] moveElementToEnd(int []array,
+                              int toMove)
+{
+    // Mark left pointer
+    int i = 0;
+ 
+    // Mark the right pointer
+    int j = array.length - 1;
+ 
+    // Iterate until left pointer
+    // crosses the right pointer
+    while (i < j)
+    {
+        while (i < j && array[j] == toMove)
+ 
+            // Decrement right pointer
+            j--;
+ 
+        if (array[i] == toMove)
+ 
+            // Swap the two elements
+            // in the array
+            swap(array, i, j);
+ 
+        // Increment left pointer
+        i++;
+    }
+ 
+    // Return the result
+    return array;
+}
+ 
+static int[] swap(int []arr, int i, int j)
+{
+    int temp = arr[i];
+    arr[i] = arr[j];
+    arr[j] = temp;
+    return arr;
+}
+ 
+// Driver code
+public static void main(String[] args)
+{
+    int []arr = { 3, 2, 2, 3 };
+    int K = 3;
+    int []ans = moveElementToEnd(arr, K);
+ 
+    for(int i = 0; i < arr.length; i++)
+       System.out.print(ans[i] + " ");
+}
+}
+
+
 
  /*
          * 1.3 В консоли запросить имя пользователя. В зависимости от текущего времени, вывести приветствие вида:
